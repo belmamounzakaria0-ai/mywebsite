@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="site_title">SEHATIDELIVERY - Fast Medicine Delivery in Morocco</title>
+    <meta name="description" content="Sehati Health offers fast and secure medicine delivery, lab test distribution, and healthcare partnerships across Morocco. Order online or partner with us.">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header id="header">
+        <div class="header-content">
+            <a href="#" class="logo">Sehati<span class="logo-health">DELIVERY</span></a>
+            <nav>
+                <a href="#hero" data-translate="nav_home">Home</a>
+                <a href="#forms" data-translate="nav_order">Order</a>
+                <a href="#partner" data-translate="nav_partner">Partner with Us</a>
+                <a href="#emergency" data-translate="nav_emergency">Emergency</a>
+            </nav>
+            <div class="language-switcher">
+                <button onclick="setLanguage('en')">EN</button>
+                <button onclick="setLanguage('fr')">FR</button>
+                <button onclick="setLanguage('ar')">AR</button>
+            </div>
+        </div>
+        <div class="pharmacy-ticker">
+            <span class="ticker-label" data-translate="pharmacy_on_duty">Pharmacies on Duty (Meknès):</span>
+            <div class="ticker-animation" id="pharmacy-list">
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1 data-translate="hero_title">Fast & Secure Medicine Delivery at Your Doorstep</h1>
+                    <p data-translate="hero_subtitle">Sehati connects patients, pharmacies, and laboratories for a better healthcare experience.</p>
+                    <div class="hero-buttons">
+                        <a href="#forms" class="btn btn-primary" data-translate="btn_order_now">Order Now</a>
+                        <a href="#partner" class="btn btn-secondary" data-translate="btn_join_partner">Join as Partner</a>
+                    </div>
+                </div>
+             
+                    <img src="logo med.png" alt="Medicine delivery person on a scooter">
+                </div>
+            </div>
+        </section>
+
+        <section id="forms" class="form-section">
+            <div class="container">
+                <h2 data-translate="forms_section_title">Place Your Order</h2>
+                <div class="forms-grid">
+                    <div class="form-container">
+                        <form action="upload.php" method="POST" enctype="multipart/form-data" class="sehati-form">
+                            <input type="hidden" name="form_type" value="Partner/Lab Order">
+                            <h3 data-translate="partner_form_title"><i class="fa-solid fa-handshake"></i> For Partners & Labs</h3>
+                            <div class="input-group">
+                                <label for="partner_name" data-translate="label_name">Full Name</label>
+                                <input type="text" id="partner_name" name="Full_Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="pharmacy_name" data-translate="label_pharmacy_name">Pharmacy / Lab Name</label>
+                                <input type="text" id="pharmacy_name" name="Pharmacy_Lab_Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="partner_phone" data-translate="label_phone">Phone Number</label>
+                                <input type="tel" id="partner_phone" name="Phone_Number" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="partner_message" data-translate="label_order_details">Order Details or Message</label>
+                                <textarea id="partner_message" name="Order_Details" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-translate="btn_send_order">Send Order</button>
+                        </form>
+                    </div>
+
+                    <div class="form-container">
+                        <form action="upload.php" method="POST" enctype="multipart/form-data" class="sehati-form">
+                            <input type="hidden" name="form_type" value="Client Medicine Order">
+                            <h3 data-translate="client_form_title"><i class="fa-solid fa-pills"></i> For Customers</h3>
+                            <div class="input-group">
+                                <label for="client_name" data-translate="label_name">Full Name</label>
+                                <input type="text" id="client_name" name="Full_Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="client_phone" data-translate="label_phone">Phone Number</label>
+                                <input type="tel" id="client_phone" name="Phone_Number" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="client_address" data-translate="label_address">Delivery Address</label>
+                                <input type="text" id="client_address" name="Delivery_Address" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="prescription" data-translate="label_upload_prescription">Upload Prescription (Max 5MB)</label>
+                                <input type="file" id="prescription" name="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" required>
+                                <small data-translate="file_types">Allowed: PDF, DOC, PNG, JPG</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-translate="btn_order_medicine">Order Medicine</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="partner" class="form-section-alt">
+             <div class="container">
+                <h2 data-translate="join_section_title">Join Our Team</h2>
+                <p class="section-subtitle" data-translate="join_section_subtitle">We are looking for passionate individuals to help us grow.</p>
+                <div class="form-container-full">
+                    <form action="upload.php" method="POST" enctype="multipart/form-data" class="sehati-form">
+                        <input type="hidden" name="form_type" value="Job/Partnership Application">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="candidate_name" data-translate="label_name">Full Name</label>
+                                <input type="text" id="candidate_name" name="Full_Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="candidate_phone" data-translate="label_phone">Phone Number</label>
+                                <input type="tel" id="candidate_phone" name="Phone_Number" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                             <div class="input-group">
+                                <label for="candidate_location" data-translate="label_location">Your City/Location</label>
+                                <input type="text" id="candidate_location" name="Location" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="candidate_role" data-translate="label_role">Desired Role</label>
+                                <input type="text" id="candidate_role" name="Desired_Role" placeholder="e.g., Delivery Driver, Nurse..." data-translate-placeholder="role_placeholder">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="cv" data-translate="label_upload_cv">Upload Your CV (Max 5MB)</label>
+                            <input type="file" id="cv" name="file" accept=".pdf,.doc,.docx" required>
+                            <small data-translate="file_types_cv">Allowed: PDF, DOC</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-translate="btn_apply_now">Apply Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="emergency">
+            <div class="container">
+                <h2 data-translate="emergency_title">Moroccan Emergency Numbers</h2>
+                <div class="emergency-grid">
+                    <div class="emergency-card">
+                        <i class="fas fa-ambulance"></i>
+                        <h3 data-translate="emergency_ambulance">Ambulance</h3>
+                        <p>141</p>
+                    </div>
+                    <div class="emergency-card">
+                        <i class="fas fa-car"></i>
+                        <h3 data-translate="emergency_police">Police</h3>
+                        <p>19</p>
+                    </div>
+                    <div class="emergency-card">
+                        <i class="fas fa-fire-extinguisher"></i>
+                        <h3 data-translate="emergency_fire">Firefighters</h3>
+                        <p>15</p>
+                    </div>
+                    <div class="emergency-card">
+                        <i class="fas fa-hospital"></i>
+                        <h3 data-translate="emergency_moh">Ministry of Health</h3>
+                        <p>0801004747</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#hero" data-translate="nav_home">Home</a>
+                    <span class="footer-separator">|</span>
+                    <a href="#partner" data-translate="footer_about">About Us</a>
+                     <span class="footer-separator">|</span>
+                    <a href="#forms" data-translate="footer_contact">Contact</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/+212664128765" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="copyright" data-translate="footer_copyright">Copyright © 2025 Sehati DELIVERY – All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
